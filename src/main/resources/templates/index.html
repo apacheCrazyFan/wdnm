@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Test</title>
+    <script type="text/javascript" src="./static/js/jquery.min.js"></script>
+</head>
+<body>
+
+<ul id="sll" th:each="user : ${studentWrapper.data}">
+    <li>
+
+    </li>
+</ul>
+
+<div>
+    <button id="addButton" onclick="addStudent()">添加</button>
+
+</div>
+
+</body>
+
+<javascript >
+    var sid =0;
+
+    var addStudent = function(){
+
+    $.ajax({
+    url : "/student/addStudent",
+    type : 'POST',
+    dataType : 'json',
+    data:{sid:sid,
+    sname:sname + sid,
+    sage : sid,
+    smsg:"wdnm"
+    },
+    success : function(data) {
+    sid++;
+    },
+    error : function(msg) {
+    }
+    });
+    }
+
+</javascript>
+
+</html>
