@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- namespace:填写映射当前的Mapper接口，所有的增删改查的参数和返回值类型，
+		就可以直接填写缩写，不区分大小写，直接通过方法名去找类型-->
+<mapper namespace="com.example.demo.student.dao.StudentMapper">
+    <resultMap type="Student" id="students">
+        <id property="sid" column="sid"/>
+        <result property="sname" column="sname"/>
+        <result property="sage" column="sage"/>
+        <result property="smsg" column="smsg"/>
+    </resultMap>
+
+    <select id="selectAllStudent" resultMap="students">
+        select sid, sname, sage, smsg
+        from student
+    </select>
+
+
+    <select id="selectSingleStudentById" parameterType="String" resultType="Student">
+        select sid, sname, sage, smsg
+        from student
+        where sid = #{sid}
+    </select>
+
+    <insert id="insertStudent" parameterType="Student">
+        insert into student
+        (sid, sname, sage, smsg)
+        value
+        (#{sid}, #{sname}, #{sage}, #{smsg})
+    </insert>
+
+
+</mapper>

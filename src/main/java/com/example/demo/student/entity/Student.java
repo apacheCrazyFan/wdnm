@@ -1,10 +1,10 @@
 package com.example.demo.student.entity;
 
 public class Student {
-    String sid;
-    String sname;
-    int sage;
-    String smsg;
+    private String sid;
+    private String sname;
+    private int sage;
+    private String smsg;
 
     public String getSid() {
         return sid;

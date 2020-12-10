@@ -1,9 +1,9 @@
 package com.example.demo.responseWrapper;
 
 public class StudentWarpper {
-    String code;
-    String msg;
-    Object data;
+    private String code;
+    private String msg;
+    private Object data;
 
     public StudentWarpper(String code, String msg, Object data) {
         this.code = code;
@@ -26,6 +26,8 @@ public class StudentWarpper {
     public Object getData() {
         return data;
     }
+
+
     public void setData(Object data) {
         this.data = data;
     }

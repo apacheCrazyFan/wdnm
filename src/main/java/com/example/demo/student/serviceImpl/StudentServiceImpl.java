@@ -1,7 +1,7 @@
 package com.example.demo.student.serviceImpl;
 
 import com.example.demo.responseWrapper.StudentWarpper;
-import com.example.demo.student.dao.StudentDao;
+import com.example.demo.student.dao.StudentMapper;
 import com.example.demo.student.entity.Student;
 import com.example.demo.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,26 +9,26 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-import static java.lang.Boolean.TRUE;
-
 @Service("studentService")
 public class StudentServiceImpl implements StudentService {
     @Autowired
-    StudentDao studentDao;
+    private StudentMapper studentMapper;
+
+
 
     @Override
     public List<Student> getAllStudent() {
-        return studentDao.selectAllStudent();
+        return studentMapper.selectAllStudent();
     }
 
     @Override
     public Student getSingleStuentBySid(String sid) {
-        return studentDao.selectSingleStudentById(sid);
+        return studentMapper.selectSingleStudentById(sid);
     }
 
     @Override
     public boolean addStudent(Student stduent) {
-        return studentDao.insertStudent(stduent) > 0 ? true : false;
+        return studentMapper.insertStudent(stduent) > 0 ? true : false;
     }
 
 
